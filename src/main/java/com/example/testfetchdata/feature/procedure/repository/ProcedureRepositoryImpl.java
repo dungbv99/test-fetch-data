@@ -62,7 +62,7 @@ public class ProcedureRepositoryImpl implements ProcedureRepository{
             * get refCursor too long with extremely large data cause
             * in https://github.com/pgjdbc/pgjdbc/blob/master/pgjdbc/src/main/java/org/postgresql/jdbc/PgResultSet.java#L274
             * with type = refcursor stmt wait to fetch all data then close connection => we must wait to all data to consume
-            *
+            * if data too large => get by page => cost for offset
             *
             * */
         } catch (SQLException e) {
